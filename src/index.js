@@ -19,8 +19,7 @@ router.post(
         from: process.env.USER,
         to: process.env.ADMIN_EMAIL,
         subject: 'Сообщение от сервиса с портфолио',
-        html: `<h3>С вами хотят связаться</h3><p>Ниже вы найдете информацию о запросе:</p><ul><li>Имя: ${name}</li><li>Контакт для связи: ${contacts}</li><li>Сообщение: ${msg}</li></ul>`, // html body
-        text: name + ' ' + contacts + ' ' + msg,
+        html: `<h3>С вами хотят связаться</h3><p>Ниже вы найдете информацию о запросе:</p><ul><li>Имя: ${name}</li><li>Контакт для связи: ${contacts}</li><li>Сообщение: ${msg}</li></ul>`,
       };
       await transport.sendMail(message);
       return res.status(201).json({ msg: 'Ваше запрос был отправлен, в скором времени мы с вами свяжемся' });
