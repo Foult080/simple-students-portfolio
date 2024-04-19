@@ -5,8 +5,8 @@ const transport = nodemailer.createTransport({
   host: 'smtp.mail.ru',
   port: 465,
   auth: {
-    user: 'email пользователя',
-    pass: 'сформированный пароль',
+    user: 'user@mail.ru', //email пользователя
+    pass: 'password', //'сформированный пароль'
   },
 });
 
