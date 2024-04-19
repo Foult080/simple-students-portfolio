@@ -16,8 +16,8 @@ router.post(
     try {
       const { name, contacts, msg } = req.body;
       const message = {
-        from: process.env.USER,
-        to: process.env.ADMIN_EMAIL,
+        from: 'Адрес почты, с которой ведется отправка писем',
+        to: 'Адрес почты, на которую вы хотите получать письмо',
         subject: 'Сообщение от сервиса с портфолио',
         html: `<h3>С вами хотят связаться</h3><p>Ниже вы найдете информацию о запросе:</p><ul><li>Имя: ${name}</li><li>Контакт для связи: ${contacts}</li><li>Сообщение: ${msg}</li></ul>`,
       };
