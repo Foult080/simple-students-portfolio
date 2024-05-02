@@ -16,12 +16,12 @@ router.post(
     try {
       const { name, contacts, msg } = req.body;
       const message = {
-        from: 'admin@mail.ru', // Адрес почты, с которой ведется отправка писем
-        to: 'myemail@mail.ru', //Адрес почты, на которую вы хотите получать письмо
+        from: process.env.USER, // Адрес почты, с которой ведется отправка писем из файла .env
+        to: process.env.ADMIN_EMAIL, //Адрес почты, на которую вы хотите получать письмо из файла .env
         subject: 'Сообщение от сервиса с портфолио',
         html: `<h3>С вами хотят связаться</h3><p>Ниже вы найдете информацию о запросе:</p><ul><li>Имя: ${name}</li><li>Контакт для связи: ${contacts}</li><li>Сообщение: ${msg}</li></ul>`,
       };
-      await transport.sendMail(message);
+      //await transport.sendMail(message);
       return res.status(201).json({ msg: 'Ваше запрос был отправлен, в скором времени мы с вами свяжемся' });
     } catch (error) {
       console.error(error);
